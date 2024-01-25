@@ -1,33 +1,34 @@
 
-// O que foi desenvolvido na aula
-/*alert('Boas vindas ao jogo do número secreto');
-let numeroSecreto = 29;
-let guardaNumero = prompt('Escolha um número entre 1 e 30');
+alert('Boas vindas ao jogo do número secreto');
+let numeroMaximo = 100;
+let numeroSecreto = parseInt(Math.random() * numeroMaximo + 1);
+console.log(numeroSecreto);
+let chute;
+let tentativas = 1;
 
+//enquanto
+while (chute != numeroSecreto) {
 
-if(numeroSecreto == guardaNumero){
-    console.log('Você acertou o número secreto: 29');
-}
-else{
-    console.log('Você errou');
-}
-*/
+    chute = prompt(`Escolha um número entre 1 e ${numeroMaximo}`);
 
+    // se chute for igual ao numero secreto 
+    {
+        if (numeroSecreto == chute) {
+           //parar o while
+           break;
 
-//desafio da aula
-alert('Boas Vindas ao nosso site!');
-let nome = 'Lua';
-let idade = 25;
-let numeroDeVendas = 50;
-let saldoDisponivel = 1000;
-alert('Erro! Preencha todos os campos');
-let mensagemDeErro = 'Erro! Preencha todos os campos'
-alert(mensagemDeErro);
-let guardarNome = prompt('qual seu nome');
-let guardarIdade = prompt('qual sua idade');
-if(guardarIdade >= 18){
-    alert('Pode tirar a habilitação');
+            //console.log('mensagem'); essa mensagem apareceria no console na hora de inspecionar o cod na web
+        }//senao
+        else
+            if (numeroSecreto > chute) {
+                alert(`O número secreto é maior que ${chute}`);
+            }
+            else {
+                alert(`O número secreto é menor que ${chute}`);
+            }
+        tentativas++;
+    }
 }
-else{
-    alert('não pode tirar a habilitação');
-}
+
+let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+alert(`Você acertou o número secreto: ${numeroSecreto} com ${tentativas} ${palavraTentativa}.` );
